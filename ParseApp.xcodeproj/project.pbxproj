@@ -73,11 +73,11 @@
 			children = (
 				D5F8B7411E484FD500B6D3FB /* AppDelegate.swift */,
 				D5F8B7531E48508000B6D3FB /* ParseLoginViewController.swift */,
+				D5F8B7551E48554200B6D3FB /* ParseClient.swift */,
 				D5F8B7451E484FD500B6D3FB /* Main.storyboard */,
 				D5F8B7481E484FD500B6D3FB /* Assets.xcassets */,
 				D5F8B74A1E484FD500B6D3FB /* LaunchScreen.storyboard */,
 				D5F8B74D1E484FD500B6D3FB /* Info.plist */,
-				D5F8B7551E48554200B6D3FB /* ParseClient.swift */,
 			);
 			path = ParseApp;
 			sourceTree = "<group>";
