@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8982640DE11A534DB4FD0599 /* Pods_ParseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D33BC7C265FCAA9E28344D0 /* Pods_ParseApp.framework */; };
+		D535ADFB1E59984700145B4A /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D535ADFA1E59984700145B4A /* BaseNavigationViewController.swift */; };
+		D5791E331E5A2BD800F696B3 /* KeyDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E321E5A2BD800F696B3 /* KeyDefinitions.swift */; };
+		D5791E351E5A550200F696B3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E341E5A550200F696B3 /* ChatViewController.swift */; };
 		D5F8B7421E484FD500B6D3FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8B7411E484FD500B6D3FB /* AppDelegate.swift */; };
 		D5F8B7471E484FD500B6D3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F8B7451E484FD500B6D3FB /* Main.storyboard */; };
 		D5F8B7491E484FD500B6D3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5F8B7481E484FD500B6D3FB /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 		6D33BC7C265FCAA9E28344D0 /* Pods_ParseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D21282E3AB18E1D6CE4E42 /* Pods-ParseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseApp/Pods-ParseApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9BAE1FA18C1E9C2F95E0035B /* Pods-ParseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseApp/Pods-ParseApp.release.xcconfig"; sourceTree = "<group>"; };
+		D535ADFA1E59984700145B4A /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		D5791E321E5A2BD800F696B3 /* KeyDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyDefinitions.swift; sourceTree = "<group>"; };
+		D5791E341E5A550200F696B3 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D5F8B73E1E484FD500B6D3FB /* ParseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F8B7411E484FD500B6D3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5F8B7461E484FD500B6D3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,6 +56,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D535ADF41E59968700145B4A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D5F8B7531E48508000B6D3FB /* ParseLoginViewController.swift */,
+				D535ADFA1E59984700145B4A /* BaseNavigationViewController.swift */,
+				D5791E341E5A550200F696B3 /* ChatViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D535ADF51E59969200145B4A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D5F8B7551E48554200B6D3FB /* ParseClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		D535ADF61E59972B00145B4A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D5791E311E5A2BC100F696B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5791E321E5A2BD800F696B3 /* KeyDefinitions.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D5F8B7351E484FD500B6D3FB = {
 			isa = PBXGroup;
 			children = (
@@ -72,8 +111,10 @@
 			isa = PBXGroup;
 			children = (
 				D5F8B7411E484FD500B6D3FB /* AppDelegate.swift */,
-				D5F8B7531E48508000B6D3FB /* ParseLoginViewController.swift */,
-				D5F8B7551E48554200B6D3FB /* ParseClient.swift */,
+				D535ADF61E59972B00145B4A /* Models */,
+				D535ADF51E59969200145B4A /* API */,
+				D535ADF41E59968700145B4A /* ViewControllers */,
+				D5791E311E5A2BC100F696B3 /* Supporting Files */,
 				D5F8B7451E484FD500B6D3FB /* Main.storyboard */,
 				D5F8B7481E484FD500B6D3FB /* Assets.xcassets */,
 				D5F8B74A1E484FD500B6D3FB /* LaunchScreen.storyboard */,
@@ -215,9 +256,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5791E331E5A2BD800F696B3 /* KeyDefinitions.swift in Sources */,
 				D5F8B7561E48554200B6D3FB /* ParseClient.swift in Sources */,
 				D5F8B7541E48508000B6D3FB /* ParseLoginViewController.swift in Sources */,
 				D5F8B7421E484FD500B6D3FB /* AppDelegate.swift in Sources */,
+				D5791E351E5A550200F696B3 /* ChatViewController.swift in Sources */,
+				D535ADFB1E59984700145B4A /* BaseNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
