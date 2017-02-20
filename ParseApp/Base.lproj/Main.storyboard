@@ -127,28 +127,63 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SKM-mk-LGE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="167" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SKM-mk-LGE">
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" id="Kpd-X1-CJQ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="167" id="Kpd-X1-CJQ" customClass="ChatTableViewCell" customModule="ParseApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="167"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kpd-X1-CJQ" id="lj5-Qd-58S">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Soz-9U-j2e" userLabel="Message Container" customClass="MessageContainerView" customModule="ParseApp" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="66" width="312.5" height="35.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message sending through parse" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LM0-hg-skk" customClass="ChatTextLabel" customModule="ParseApp" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="8" width="296.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.027450980390000001" green="0.3921568627" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="LM0-hg-skk" secondAttribute="trailing" constant="8" id="ILL-Uf-Vf8"/>
+                                                        <constraint firstItem="LM0-hg-skk" firstAttribute="leading" secondItem="Soz-9U-j2e" secondAttribute="leading" constant="8" id="aYL-FI-Inu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="LM0-hg-skk" secondAttribute="bottom" constant="8" id="ebh-06-sqO"/>
+                                                        <constraint firstItem="LM0-hg-skk" firstAttribute="top" secondItem="Soz-9U-j2e" secondAttribute="top" constant="8" id="osb-S1-Pfw"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Soz-9U-j2e" secondAttribute="trailing" constant="8" id="ZGI-Io-O0g"/>
+                                                <constraint firstItem="Soz-9U-j2e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lj5-Qd-58S" secondAttribute="top" constant="8" id="a6S-nQ-xGq"/>
+                                                <constraint firstItem="Soz-9U-j2e" firstAttribute="leading" secondItem="lj5-Qd-58S" secondAttribute="leading" constant="8" id="k7C-uY-hYu"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Soz-9U-j2e" secondAttribute="bottom" constant="8" id="u90-st-JA4"/>
+                                                <constraint firstItem="Soz-9U-j2e" firstAttribute="centerY" secondItem="lj5-Qd-58S" secondAttribute="centerY" id="xjq-T6-bhi"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chatTextLabel" destination="LM0-hg-skk" id="lfr-qd-P5p"/>
+                                            <outlet property="messageContainerView" destination="Soz-9U-j2e" id="OPh-Y0-GLH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZR-Y8-ito">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wk4-Ha-qeg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wk4-Ha-qeg" customClass="SendChatButton" customModule="ParseApp" customModuleProvider="target">
                                         <rect key="frame" x="331" y="7" width="36" height="30"/>
                                         <state key="normal" title="Send">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="Jyv-Fe-J6Z" eventType="touchUpInside" id="WgQ-TE-zCQ"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Send something" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j1S-Ue-kKC" customClass="SendChatTextView" customModule="ParseApp" customModuleProvider="target">
                                         <rect key="frame" x="8" y="7" width="315" height="30"/>
@@ -201,7 +236,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ToChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="CD0-0z-4G3" customClass="BaseNavigationViewController" customModule="ParseApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ck2-pv-MbJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ck2-pv-MbJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

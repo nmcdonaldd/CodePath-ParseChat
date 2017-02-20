@@ -64,14 +64,14 @@ class ParseLoginViewController: UIViewController {
                 self.showErrorAlert(withMessage: error.localizedDescription, andTitle: "Parse Sign Up Error")
             })
             
-        }) { (error: Error) in
+        }) { (error: Error?) in
             // Do something on error
             guard self.emailTextField.text != "",
                 self.passwordTextField.text != "" else {
                     self.showErrorAlert(withMessage: "The email and/or the password fields cannot be blank.", andTitle: "Input Error")
                     return
         }
-            self.showErrorAlert(withMessage: error.localizedDescription, andTitle: "Parse Login Error")
+            self.showErrorAlert(withMessage: (error?.localizedDescription)!, andTitle: "Parse Login Error")
         }
     }
 
@@ -112,15 +112,4 @@ class ParseLoginViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
