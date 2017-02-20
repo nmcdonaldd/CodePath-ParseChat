@@ -12,6 +12,11 @@
 		D5791E331E5A2BD800F696B3 /* KeyDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E321E5A2BD800F696B3 /* KeyDefinitions.swift */; };
 		D5791E351E5A550200F696B3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E341E5A550200F696B3 /* ChatViewController.swift */; };
 		D5791E381E5A759A00F696B3 /* SendChatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E371E5A759A00F696B3 /* SendChatTextView.swift */; };
+		D5791E3C1E5A7D1500F696B3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E3B1E5A7D1500F696B3 /* Message.swift */; };
+		D5791E3E1E5A7F7B00F696B3 /* SendChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E3D1E5A7F7B00F696B3 /* SendChatButton.swift */; };
+		D5791E401E5A8BC100F696B3 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E3F1E5A8BC100F696B3 /* ChatTableViewCell.swift */; };
+		D5791E421E5A8CAF00F696B3 /* ChatTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E411E5A8CAF00F696B3 /* ChatTextLabel.swift */; };
+		D5791E441E5A978F00F696B3 /* MessageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5791E431E5A978F00F696B3 /* MessageContainerView.swift */; };
 		D5F8B7421E484FD500B6D3FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8B7411E484FD500B6D3FB /* AppDelegate.swift */; };
 		D5F8B7471E484FD500B6D3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F8B7451E484FD500B6D3FB /* Main.storyboard */; };
 		D5F8B7491E484FD500B6D3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5F8B7481E484FD500B6D3FB /* Assets.xcassets */; };
@@ -28,6 +33,11 @@
 		D5791E321E5A2BD800F696B3 /* KeyDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyDefinitions.swift; sourceTree = "<group>"; };
 		D5791E341E5A550200F696B3 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D5791E371E5A759A00F696B3 /* SendChatTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendChatTextView.swift; sourceTree = "<group>"; };
+		D5791E3B1E5A7D1500F696B3 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D5791E3D1E5A7F7B00F696B3 /* SendChatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendChatButton.swift; sourceTree = "<group>"; };
+		D5791E3F1E5A8BC100F696B3 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		D5791E411E5A8CAF00F696B3 /* ChatTextLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTextLabel.swift; sourceTree = "<group>"; };
+		D5791E431E5A978F00F696B3 /* MessageContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainerView.swift; sourceTree = "<group>"; };
 		D5F8B73E1E484FD500B6D3FB /* ParseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F8B7411E484FD500B6D3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5F8B7461E484FD500B6D3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +89,7 @@
 		D535ADF61E59972B00145B4A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D5791E3B1E5A7D1500F696B3 /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -95,6 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				D5791E371E5A759A00F696B3 /* SendChatTextView.swift */,
+				D5791E3D1E5A7F7B00F696B3 /* SendChatButton.swift */,
+				D5791E3F1E5A8BC100F696B3 /* ChatTableViewCell.swift */,
+				D5791E411E5A8CAF00F696B3 /* ChatTextLabel.swift */,
+				D5791E431E5A978F00F696B3 /* MessageContainerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -267,11 +282,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5791E421E5A8CAF00F696B3 /* ChatTextLabel.swift in Sources */,
 				D5791E381E5A759A00F696B3 /* SendChatTextView.swift in Sources */,
 				D5791E331E5A2BD800F696B3 /* KeyDefinitions.swift in Sources */,
 				D5F8B7561E48554200B6D3FB /* ParseClient.swift in Sources */,
+				D5791E441E5A978F00F696B3 /* MessageContainerView.swift in Sources */,
 				D5F8B7541E48508000B6D3FB /* ParseLoginViewController.swift in Sources */,
+				D5791E3E1E5A7F7B00F696B3 /* SendChatButton.swift in Sources */,
 				D5F8B7421E484FD500B6D3FB /* AppDelegate.swift in Sources */,
+				D5791E3C1E5A7D1500F696B3 /* Message.swift in Sources */,
+				D5791E401E5A8BC100F696B3 /* ChatTableViewCell.swift in Sources */,
 				D5791E351E5A550200F696B3 /* ChatViewController.swift in Sources */,
 				D535ADFB1E59984700145B4A /* BaseNavigationViewController.swift in Sources */,
 			);

@@ -52,7 +52,7 @@ class ParseClient: NSObject {
         })
     }
     
-    func signUp(user: PFUser, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+    func signUp(user: PFUser, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
         user.signUpInBackground { (succeeded: Bool, error: Error?) in
             // Do something!
             if let error = error {
@@ -63,4 +63,31 @@ class ParseClient: NSObject {
         }
     }
     
+    func getMessages(success: @escaping ([Message])->(), failure: @escaping (Error?)->()) {
+        let query: PFQuery<PFObject> = PFQuery(className: "Message")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            guard error == nil else {
+                failure(error)
+                return
+            }
+            
+            guard let objects = objects else {
+                return
+            }
+            
+            let messages: [Message] = Message.messagesFromObjects(objects)
+            success(messages)
+        }
+    }
+    
+    func saveObjectToParse(_ object: PFObject, success: @escaping ()->(), failure: @escaping (Error?)->()) {
+        object.saveInBackground { (completed: Bool, error: Error?) in
+            if (completed) {
+                success()
+            } else {
+                failure(error)
+            }
+        }
+    }
 }
