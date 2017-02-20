@@ -44,6 +44,7 @@ class ChatViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ChatViewController.getMessages), userInfo: nil, repeats: true)
         
         self.title = "Chat"
+        self.getMessages()
     }
     
     @objc private func getMessages() {
