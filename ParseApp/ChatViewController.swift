@@ -12,6 +12,7 @@ class ChatViewController: UIViewController {
     
     fileprivate static let textViewPlaceholderText: String = "Send something..."
     fileprivate var currentTextViewContentHeight: CGFloat = 0;
+    fileprivate var defaultSendChatContainerViewHeight: CGFloat = 0;
     
     @IBOutlet weak var sendChatContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var sendChatContainerView: UIView!
@@ -38,6 +39,8 @@ class ChatViewController: UIViewController {
         self.chatsTableView.rowHeight = UITableViewAutomaticDimension
         self.chatsTableView.estimatedRowHeight = 45
         
+        self.defaultSendChatContainerViewHeight = self.sendChatContainerViewHeightConstraint.constant
+        
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ChatViewController.getMessages), userInfo: nil, repeats: true)
         
         self.title = "Chat"
@@ -62,10 +65,15 @@ class ChatViewController: UIViewController {
         message.saveMessageToParse(success: { 
             self.sendChatTextView.endEditing(true)
             self.sendChatTextView.text = nil
+            self.updateSendContainerViewHeightConstraintWithValue(self.defaultSendChatContainerViewHeight)
         }) { (error: Error?) in
             // Show some error.
             print("Error sending message: \(error?.localizedDescription)")
         }
+    }
+    
+    fileprivate func updateSendContainerViewHeightConstraintWithValue(_ value: CGFloat) {
+        self.sendChatContainerViewHeightConstraint.constant = value
     }
 }
 
@@ -95,7 +103,8 @@ extension ChatViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let height: CGFloat = textView.contentSize.height
         if height != self.currentTextViewContentHeight {
-            self.sendChatContainerViewHeightConstraint.constant += self.currentTextViewContentHeight == 0 ? 0 : height - self.currentTextViewContentHeight
+            let newHeight = self.sendChatContainerViewHeightConstraint.constant + ((self.currentTextViewContentHeight == 0) ? 0 : height - self.currentTextViewContentHeight)
+            self.updateSendContainerViewHeightConstraintWithValue(newHeight)
             self.currentTextViewContentHeight = height
         }
         if textView.text.isEmpty {
