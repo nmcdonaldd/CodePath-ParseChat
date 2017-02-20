@@ -150,7 +150,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Send something" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j1S-Ue-kKC">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Send something" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j1S-Ue-kKC" customClass="SendChatTextView" customModule="ParseApp" customModuleProvider="target">
                                         <rect key="frame" x="8" y="7" width="315" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20256314212328766" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

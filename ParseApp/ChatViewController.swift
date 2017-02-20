@@ -11,12 +11,12 @@ import UIKit
 class ChatViewController: UIViewController {
     
     fileprivate static let textViewPlaceholderText: String = "Send something..."
-    fileprivate var previousContentHeight: CGFloat = 0;
+    fileprivate var currentTextViewContentHeight: CGFloat = 0;
     
     @IBOutlet weak var sendChatContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var sendChatContainerView: UIView!
     @IBOutlet weak var sendChatButton: UIButton!
-    @IBOutlet weak var sendChatTextView: UITextView!
+    @IBOutlet weak var sendChatTextView: SendChatTextView!
     @IBOutlet weak var chatsTableView: UITableView!
     
     override func viewDidLoad() {
@@ -49,10 +49,9 @@ extension ChatViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         let height: CGFloat = textView.contentSize.height
-        if height != self.previousContentHeight {
-            print(height)
-            self.previousContentHeight = height
-            self.sendChatContainerViewHeightConstraint.constant = height
+        if height != self.currentTextViewContentHeight {
+            self.sendChatContainerViewHeightConstraint.constant += self.currentTextViewContentHeight == 0 ? 0 : height - self.currentTextViewContentHeight
+            self.currentTextViewContentHeight = height
         }
     }
     
@@ -65,10 +64,7 @@ extension ChatViewController: UITextViewDelegate {
 }
 
 extension ChatViewController: UIScrollViewDelegate {
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("hi!")
-//        let bottomOffset: CGPoint = CGPoint(x: 0, y: scrollView.bounds.size.height)
-//        scrollView.setContentOffset(bottomOffset, animated: true)
-//    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Offset: \(scrollView.contentOffset)")
+    }
 }
