@@ -28,8 +28,9 @@ class Message: NSObject {
         var messages: [Message] = [Message]()
         
         for messageObject in objects {
-            let messageString: String = messageObject["text"] as! String
-            messages.append(Message(withMessage: messageString))
+            if let messageString: String = messageObject["text"] as? String {
+                messages.append(Message(withMessage: messageString))
+            }
         }
         
         return messages
