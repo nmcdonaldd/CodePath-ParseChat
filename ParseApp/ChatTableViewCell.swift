@@ -12,12 +12,14 @@ class ChatTableViewCell: UITableViewCell {
 
     @IBOutlet weak var messageContainerView: MessageContainerView!
     @IBOutlet weak var chatTextLabel: ChatTextLabel!
+    @IBOutlet weak var fromUserName: ChatTextLabel!
     var message: Message? {
         didSet {
             guard let message = self.message else {
                 return
             }
             self.chatTextLabel.text = message.message
+            self.fromUserName.text = message.authorUsername
         }
     }
     

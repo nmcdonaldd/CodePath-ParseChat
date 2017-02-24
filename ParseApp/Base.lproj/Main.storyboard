@@ -139,7 +139,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Soz-9U-j2e" userLabel="Message Container" customClass="MessageContainerView" customModule="ParseApp" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="66" width="312.5" height="35.5"/>
+                                                    <rect key="frame" x="8" y="57" width="313" height="53.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message sending through parse" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LM0-hg-skk" customClass="ChatTextLabel" customModule="ParseApp" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="8" width="296.5" height="19.5"/>
@@ -147,12 +147,21 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from: email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruH-Kq-5bC" customClass="ChatTextLabel" customModule="ParseApp" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="29.5" width="296.5" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.027450980390000001" green="0.3921568627" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="ruH-Kq-5bC" secondAttribute="bottom" constant="8" id="9YG-nc-vCV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ruH-Kq-5bC" secondAttribute="trailing" constant="8" id="E36-4t-QqG"/>
                                                         <constraint firstAttribute="trailing" secondItem="LM0-hg-skk" secondAttribute="trailing" constant="8" id="ILL-Uf-Vf8"/>
                                                         <constraint firstItem="LM0-hg-skk" firstAttribute="leading" secondItem="Soz-9U-j2e" secondAttribute="leading" constant="8" id="aYL-FI-Inu"/>
-                                                        <constraint firstAttribute="bottom" secondItem="LM0-hg-skk" secondAttribute="bottom" constant="8" id="ebh-06-sqO"/>
+                                                        <constraint firstItem="ruH-Kq-5bC" firstAttribute="leading" secondItem="Soz-9U-j2e" secondAttribute="leading" constant="8" id="bwX-uH-qSE"/>
+                                                        <constraint firstItem="ruH-Kq-5bC" firstAttribute="top" secondItem="LM0-hg-skk" secondAttribute="bottom" constant="2" id="nV3-Ti-Fez"/>
                                                         <constraint firstItem="LM0-hg-skk" firstAttribute="top" secondItem="Soz-9U-j2e" secondAttribute="top" constant="8" id="osb-S1-Pfw"/>
                                                     </constraints>
                                                 </view>
@@ -168,6 +177,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chatTextLabel" destination="LM0-hg-skk" id="lfr-qd-P5p"/>
+                                            <outlet property="fromUserName" destination="ruH-Kq-5bC" id="Es9-pZ-KUJ"/>
                                             <outlet property="messageContainerView" destination="Soz-9U-j2e" id="OPh-Y0-GLH"/>
                                         </connections>
                                     </tableViewCell>

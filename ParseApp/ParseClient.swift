@@ -28,7 +28,7 @@ class ParseClient: NSObject {
     }
     
     
-    func login(user: PFUser, success: @escaping (PFUser) -> (), failure: @escaping (Error) -> ()) {
+    func login(user: PFUser, success: @escaping (PFUser)->(), failure: @escaping (Error)->()) {
         let task: BFTask<PFUser> = PFUser.logInWithUsername(inBackground: user.username!, password: user.password!)
         task.continue ({ (theTask: BFTask<PFUser>) -> Any? in
             if theTask.isCancelled {
@@ -52,7 +52,7 @@ class ParseClient: NSObject {
         })
     }
     
-    func signUp(user: PFUser, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
+    func signUp(user: PFUser, success: @escaping ()->(), failure: @escaping (Error?)->()) {
         user.signUpInBackground { (succeeded: Bool, error: Error?) in
             // Do something!
             if let error = error {
@@ -66,6 +66,7 @@ class ParseClient: NSObject {
     func getMessages(success: @escaping ([Message])->(), failure: @escaping (Error?)->()) {
         let query: PFQuery<PFObject> = PFQuery(className: "Message")
         query.addDescendingOrder("createdAt")
+        query.includeKey("user")
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             guard error == nil else {
                 failure(error)

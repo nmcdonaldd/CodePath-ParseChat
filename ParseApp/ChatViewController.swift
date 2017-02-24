@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ChatViewController: UIViewController {
     
@@ -62,7 +63,7 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
-        let message: Message = Message(withMessage: self.sendChatTextView.text)
+        let message: Message = Message(withMessage: self.sendChatTextView.text, fromUser: PFUser.current()!)
         message.saveMessageToParse(success: { 
             self.sendChatTextView.endEditing(true)
             self.sendChatTextView.text = nil

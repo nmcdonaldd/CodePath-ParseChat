@@ -12,11 +12,15 @@ import Parse
 class Message: NSObject {
     
     var message: String!
+    var authorUsername: String?
     private var parseMessageObject: PFObject = PFObject(className: "Message")
     
-    init(withMessage message: String) {
+    init(withMessage message: String, fromUser: PFUser?) {
         self.message = message
         self.parseMessageObject["text"] = self.message
+        if let user: PFUser = fromUser {
+            self.authorUsername = user.username ?? "<empty>"
+        }
     }
     
     func saveMessageToParse(success: @escaping ()->(), failure: @escaping (Error?)->()) {
@@ -29,7 +33,7 @@ class Message: NSObject {
         
         for messageObject in objects {
             if let messageString: String = messageObject["text"] as? String {
-                messages.append(Message(withMessage: messageString))
+                messages.append(Message(withMessage: messageString, fromUser: messageObject["user"] as? PFUser))
             }
         }
         
